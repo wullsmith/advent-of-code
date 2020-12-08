@@ -7,7 +7,7 @@ class Expenses {
 
   constructor(expenses: Array<number>) {
     this.expenses = expenses;
-    this.expensesObj = Object.assign({}, ...expenses.map((e) => ({ [e]: 1 }))) 
+    this.expensesObj = Object.assign({}, ...expenses.map((e) => ({ [e]: 1 })))
   }
 
   findAddends2(targetSum: number): [number, number] {
@@ -40,9 +40,9 @@ class Expenses {
 
 // main
 const targetSum = 2020;
-const inputFile = '../inputs/01.txt';
+const inputFile = __dirname + '../inputs/01.txt';
 const expenses = readIntList(inputFile);
-const expenseCalculator = new Expenses(expenses); 
+const expenseCalculator = new Expenses(expenses);
 
 const [a1, a2] = expenseCalculator.findAddends2(targetSum);
 const product1 = a1 * a2;

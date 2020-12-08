@@ -44,7 +44,7 @@ function countValidPasswords(passwordLines: Array<string>, isValid: (passwordLin
 }
 
 // main
-const inputFile = '../inputs/02.txt';
+const inputFile = __dirname + '../inputs/02.txt';
 const passwords = readStringList(inputFile);
 
 const numValid1 = countValidPasswords(passwords, isValidPassword1);

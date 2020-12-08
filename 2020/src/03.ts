@@ -21,13 +21,13 @@ function countTrees(grid: Array<string>, slopeX: number, slopeY: number): number
 }
 
 // main
-const inputFile = '../inputs/03.txt';
+const inputFile = __dirname + '../inputs/03.txt';
 const grid = readStringList(inputFile);
 const numTrees1 = countTrees(grid, 3, 1);
 
 console.log(`3-1 answer: ${numTrees1}`);
 
-const product2 = 
+const product2 =
   countTrees(grid, 1, 1) *
   countTrees(grid, 3, 1) *
   countTrees(grid, 5, 1) *
