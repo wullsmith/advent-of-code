@@ -1,3 +1,4 @@
+// Day 5: Binary Boarding
 import { readStringList } from './lib/utils';
 
 function getRow(spec: string): number {

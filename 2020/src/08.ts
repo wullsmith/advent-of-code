@@ -1,5 +1,4 @@
 // Day 8: Handheld Halting
-
 import { readStringList } from "./lib/utils";
 
 const PROGRAM_END = 0;

@@ -1,3 +1,4 @@
+// Day 6: Custom Customs
 import * as fs from 'fs';
 
 function readGroupFile(filename: string): Array<string> {

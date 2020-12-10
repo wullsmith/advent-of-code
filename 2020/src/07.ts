@@ -1,5 +1,4 @@
 // Day 7: Handy Haversacks
-import { count } from 'console';
 import { readStringList } from './lib/utils';
 
 function parseRules(ruleStrings: Array<string>): object {
