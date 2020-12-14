@@ -15,3 +15,16 @@ export function sleep(milliseconds: number) {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
 }
+
+export function lcm(a: number, b: number): number {
+  const max = a > b ? a : b;
+  const min = a < b ? a : b;
+
+  let multiple = max;
+
+  while (multiple % min !== 0) {
+    multiple += max;
+  }
+
+  return multiple;
+}
