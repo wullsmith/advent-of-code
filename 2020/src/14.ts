@@ -81,7 +81,6 @@ class DockingProgram {
     } else if (instruction[1] === 'e') {
       // mem
       let addr = op.match(/\d+/g)[0];
-      console.log(`${val} ---> \t[${addr}]`);
       this.mem[addr] = this.applyBitmask1(parseInt(val), this.bitmask);
     }
   }
@@ -97,9 +96,7 @@ class DockingProgram {
       let newAddress = this.applyBitmask2(address0, this.bitmask);
       let addresses = this.generateAddresses(newAddress).map(s => parseInt(s, 2));
 
-      console.log(`writing ${val} to ${addresses.length} addresses`);
       for (let address of addresses) {
-        console.log(`[${address}] <--- ${val}`)
         this.mem[address] = parseInt(val, 10);
       }
     }
@@ -130,9 +127,10 @@ class DockingProgram {
 const inputFile = '../inputs/14.txt';
 const instructions = readStringList(inputFile);
 
-const dockingProgram = new DockingProgram(instructions);
-dockingProgram.executeAllInstructions1();
-console.log(`14-1 answer: ${dockingProgram.sumMemory()}`);
+const dockingProgram1 = new DockingProgram(instructions);
+dockingProgram1.executeAllInstructions1();
+console.log(`14-1 answer: ${dockingProgram1.sumMemory()}`);
 
-dockingProgram.executeAllInstructions2();
-console.log(`14-2 answer: ${dockingProgram.sumMemory()}`);
+const dockingProgram2 = new DockingProgram(instructions);
+dockingProgram2.executeAllInstructions2();
+console.log(`14-2 answer: ${dockingProgram2.sumMemory()}`);
