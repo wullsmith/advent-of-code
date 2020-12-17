@@ -1,5 +1,5 @@
 // Day 15: Rambunctious Recitation
-import { readIntListCsv, sleep } from './lib/utils';
+import { readIntListCsv } from './lib/utils';
 
 function playMemoryGame(startingList: Array<number>, limit: number): number {
   let turn = 1;
@@ -24,9 +24,6 @@ function playMemoryGame(startingList: Array<number>, limit: number): number {
     lastTurn[lastNumber] = turn;
     lastNumber = newNumber;
     turn++;
-
-    // console.log(`turn ${turn}: "${newNumber}"`);
-    console.log(`turn ${turn}: ${Object.keys(lastTurn).length}`);
   }
 
   return lastNumber;
@@ -35,11 +32,5 @@ function playMemoryGame(startingList: Array<number>, limit: number): number {
 // main
 const inputFile = '../inputs/15.txt';
 const startingList = readIntListCsv(inputFile);
-const sampleList = [0,3,6];
-// console.log(`15-1 answer: ${playMemoryGame(startingList, 2020)}`);
-
+console.log(`15-1 answer: ${playMemoryGame(startingList, 2020)}`);
 console.log(`15-2 answer: ${playMemoryGame(startingList, 30000000)}`);
-// console.log(`sample answer: ${playMemoryGame2(sampleList, 10)}`);
-
-// 184 low
-// 1636 high
