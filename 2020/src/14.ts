@@ -1,14 +1,5 @@
 // Day 14: Docking Data
-import { readStringList } from './lib/utils';
-
-function padZeroes(val: string, len: number): string {
-  let newVal = val;
-  while (newVal.length < len) {
-    newVal = '0' + newVal;
-  }
-
-  return newVal;
-}
+import { readStringList, padZeroes } from './lib/utils';
 
 class DockingProgram {
   instructions: Array<string>;
