@@ -8,6 +8,10 @@ export function readStringList(filename: string): Array<string> {
   return fs.readFileSync(filename, 'utf-8').split('\n').filter((s) => s !== '').map((s) => s.trim());
 }
 
+export function readIntListCsv(filename: string): Array<number> {
+  return fs.readFileSync(filename, 'utf-8').split(',').map(s => parseInt(s));
+}
+
 export function sleep(milliseconds: number) {
   const date = Date.now();
   let currentDate = null;
@@ -27,4 +31,13 @@ export function lcm(a: number, b: number): number {
   }
 
   return multiple;
+}
+
+export function padZeroes(val: string, len: number): string {
+  let newVal = val;
+  while (newVal.length < len) {
+    newVal = '0' + newVal;
+  }
+
+  return newVal;
 }
