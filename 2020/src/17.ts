@@ -71,11 +71,9 @@ class LifeGrid {
 
   getCubeStatus(x: number, y: number, z: number): string {
     if (!this.grid[z] || !this.grid[z][y]) {
-      // console.log(`(${x},${y},${z}) status: INACTIVE`);
       return LifeGrid.INACTIVE;
     }
 
-    // console.log(`(${x},${y},${z}) status: ${this.grid[z][y][x] || LifeGrid.INACTIVE}`);
     return this.grid[z][y][x] || LifeGrid.INACTIVE;
   }
 
@@ -150,8 +148,6 @@ class LifeGrid {
       for (let y = 0; y < this.grid[z].length; y++) {
         for (let x = 0; x < this.grid[z][y].length; x++) {
           const nAdj = gridCopy.countAdjacentActiveCubes(x,y,z);
-          // console.log(`checking (${x},${y},${z})...`);
-          // console.log(`${nAdj} active cubes found`);
           if (gridCopy.isActive(x,y,z)) {
             if ((x === 0 || x === this.grid[z][y].length) ||
                 (y === 0 || y === this.grid[z].length)    ||
@@ -196,4 +192,3 @@ lifeGrid.expandBy(10);
 
 lifeGrid.run(6);
 console.log(`17-1 answer: ${lifeGrid.countTotalActiveCubes()}`);
-
