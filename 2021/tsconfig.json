@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "noImplicitUseStrict": true,
+    "outDir": "./dist",
+    "allowJs": false,
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+  },
+  "include": [
+    "./src/**/*",
+  ]
+}
