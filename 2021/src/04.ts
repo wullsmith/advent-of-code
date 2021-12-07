@@ -13,7 +13,7 @@ const boards = inputs.slice(1)
 
 // let marks = new Array(boards.length).fill(new Array(5).fill(new Array(5).fill(false)));
 // let marks = Array.from({ length: boards.length }, () => Array.from({ length: 5 }, () => Array.from({ length: 5}, () => false)));
-let marks = [...new Array(boards.length)].map(() => [...new Array(5)].map(() => [...new Array(5)].map(() => false)));
+let markedBoards = [...new Array(boards.length)].map(() => [...new Array(5)].map(() => [...new Array(5)].map(() => false)));
 let removed = new Array(boards.length).fill(false);
 
 function checkNumber(i: number, num: number): boolean {
@@ -21,7 +21,7 @@ function checkNumber(i: number, num: number): boolean {
   for (let y = 0; y < 5; y++) {
     for (let x = 0; x < 5; x++) {
       if (board[y][x] === num) {
-        marks[i][y][x] = true;
+        markedBoards[i][y][x] = true;
         return true;
       }
     }
@@ -49,7 +49,7 @@ function checkWinner(i: number): [number, number] {
 }
 
 function checkWinnerRows(i: number): number {
-  const board = marks[i];
+  const board = markedBoards[i];
   for (let row = 0; row < 5; row++) {
     let allMarked = true;
     for (let col = 0; col < 5; col++) {
@@ -67,7 +67,7 @@ function checkWinnerRows(i: number): number {
 }
 
 function checkWinnerCols(i: number): number {
-  const board = marks[i];
+  const board = markedBoards[i];
   for (let col = 0; col < 5; col++) {
     let allMarked = true;
     for (let row = 0; row < 5; row++) {
@@ -85,7 +85,7 @@ function checkWinnerCols(i: number): number {
 }
 
 function checkWinnerDiagonals(i: number): number {
-  const board = marks[i];
+  const board = markedBoards[i];
   let allMarked = true;
   for (let i = 0; i < 5; i++) {
     if (!board[i][i]) {
@@ -127,7 +127,7 @@ function printBoard(i: number): void {
 }
 
 function printMarkedBoard(i: number): void {
-  const board = marks[i];
+  const board = markedBoards[i];
   for (let y = 0; y < 5; y++) {
     for (let x = 0; x < 5; x++) {
       const marked = board[y][x];
@@ -142,7 +142,7 @@ function printMarkedBoard(i: number): void {
 // sum unmarked numbers
 function sumBoard(i: number): number {
   const board = boards[i];
-  const marked = marks[i];
+  const marked = markedBoards[i];
   let sum = 0;
   for (let y = 0; y < 5; y++) {
     for (let x = 0; x < 5; x++) {
