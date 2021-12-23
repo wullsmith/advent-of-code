@@ -8,6 +8,7 @@ const coordinates = input.map(line => line.split(' -> '));
 const size = 1000;
 
 let grid: Array<Array<number>> = [...new Array(size)].map(() => [...new Array(size)].map(() => 0));
+const part2 = true;
 
 function fillGridLine(x1: number, y1: number, x2: number, y2: number) {
   if (x1 === x2) {
@@ -22,6 +23,24 @@ function fillGridLine(x1: number, y1: number, x2: number, y2: number) {
     for (let x = start; x <= end; x++) {
       grid[y1][x]++;
     }
+  } else if (part2) {
+    const diffX = Math.abs(x1 - x2);
+    const diffY = Math.abs(y1 - y2);
+    if (diffX === diffY) {
+      // diagonal line
+      const incX = x1 < x2 ? 1 : -1;
+      const incY = y1 < y2 ? 1 : -1;
+      const dist = Math.abs(y1 - y2);
+      let steps = 0;
+      let x = x1;
+      let y = y1;
+      while (steps <= dist) {
+        grid[y][x]++;
+        x += incX;
+        y += incY;
+        steps++;
+      }
+    }
   }
 }
 
@@ -32,9 +51,7 @@ function main() {
     let [x1, y1] = pair[0].split(',').map(n => parseInt(n));
     let [x2, y2] = pair[1].split(',').map(n => parseInt(n));
 
-    if (x1 === x2 || y1 === y2) {
-      fillGridLine(x1, y1, x2, y2);
-    }
+    fillGridLine(x1, y1, x2, y2);
   }
 
   // count intersection points
@@ -47,7 +64,7 @@ function main() {
     }
   }
 
-  console.log(`5-1: ${numX} overlap points`);
+  console.log(`5-${part2 ? '2' : '1'}: ${numX} overlap points`);
 }
 
 main();
